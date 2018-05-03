@@ -1,7 +1,14 @@
+# where to store your dumps
 dumps_dir = "/home/db_dumps"
+# how many files to keep in each folder
+# to disable limits use huge number as for example 2147483648
 files_limiter = 365
+# how many gigabytes can these files weight
 size_limiter_gb = 64
+# prefix for your files if you need
 file_name_prefix = ""
+# run as user, usually it should be database administrator user
 run_as_user = "postgres"
-# every hour
+# how often to make dumps
+# 3600 * 24 means every hour
 dumping_period_seconds = 3600 * 24
