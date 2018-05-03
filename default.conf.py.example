@@ -1,0 +1,7 @@
+dumps_dir = "/home/db_dumps"
+files_limiter = 365
+size_limiter_gb = 64
+file_name_prefix = ""
+run_as_user = "postgres"
+# every hour
+dumping_period_seconds = 3600 * 24
