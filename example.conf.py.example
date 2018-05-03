@@ -1,4 +1,4 @@
 # change example to the name of your database
 database_name = 'example'
-# override dumping period so to make this database dumping every day
-dumping_period_seconds = 3600 * 24
+# uncomment line below to override dumping period to make this database dumping every hour
+# dumping_period_seconds = 3600

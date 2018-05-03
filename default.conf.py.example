@@ -10,5 +10,5 @@ file_name_prefix = ""
 # run as user, usually it should be database administrator user
 run_as_user = "postgres"
 # how often to make dumps
-# 3600 * 24 means every hour
+# 3600 * 24 means every day
 dumping_period_seconds = 3600 * 24
