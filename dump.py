@@ -9,6 +9,7 @@ import pwd
 import sys
 import datetime
 import time
+import fcntl
 from optparse import OptionParser
 
 
@@ -143,6 +144,14 @@ def main():
                 traceback.print_exc()
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    pid_file = "dump_it.pid"
+    fp = open(pid_file, "w")
+    try:
+        fcntl.lockf(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        time.sleep(10)
+        main()
+    except IOError:
+        print("another instance is already running")
+        sys.exit(1)
 
