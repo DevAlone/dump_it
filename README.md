@@ -26,7 +26,7 @@ Default config is config with global settings, each of which can be overridden i
 `sudo crontab -e`
 
 ```
-* * * * * PATH_TO_REPOSITORY/dump.py -c PATH_TO_REPOSITORY > /var/log/dump_it.stdout.log 2> /var/log/dump_it.stderr.log
+* * * * * PATH_TO_REPOSITORY/dump.py -c PATH_TO_REPOSITORY >> /var/log/dump_it.stdout.log 2>> /var/log/dump_it.stderr.log
 ```
 
 And don't forget to change PATH_TO_REPOSITORY to actual path of where you cloned it. So program will be running every minute, getting configs from repository dir and writing logs to /var/log/dump_it.stdout.log and /var/log/dump_it.stderr.log
