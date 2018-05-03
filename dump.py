@@ -149,7 +149,6 @@ if __name__ == "__main__":
     fp = open(pid_file, "w")
     try:
         fcntl.lockf(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        time.sleep(10)
         main()
     except IOError:
         print("another instance is already running")
