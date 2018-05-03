@@ -16,7 +16,7 @@ Simple tool for easy database dumping(only postgresql is supported yet).
 
 ```bash
 cp default.conf.py.example default.conf.py
-cp test.conf.py.example test.conf.py
+cp example.conf.py.example example.conf.py
 ```
 
 Default config is config with global settings, each of which can be overridden in config for database. Example of config for database is test.conf.py.example. You can create as many configs as many databases you have
