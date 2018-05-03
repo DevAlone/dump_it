@@ -19,7 +19,7 @@ cp default.conf.py.example default.conf.py
 cp example.conf.py.example example.conf.py
 ```
 
-Default config is config with global settings, each of which can be overridden in config for database. Example of config for database is test.conf.py.example. You can create as many configs as many databases you have
+Default config is config with global settings, each of which can be overridden in config for database. Example of config for database is example.conf.py.example. You can create as many configs as many databases you have
 
 * Create cron rule
 
