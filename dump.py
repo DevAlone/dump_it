@@ -103,8 +103,12 @@ def process_config(default_config_path, config_path: str):
     # check dir
     timestamp = int(time.time())
     str_date = datetime.datetime.fromtimestamp(timestamp).strftime("%Y_%B_%d_%H:%M:%S")
-    dump_file_name = config.file_name_prefix + "__" if config.file_name_prefix else ""
-    dump_file_name = config.file_name_prefix + "{}__{}__{}__pg.dump".format(
+    dump_file_name = config.file_name_prefix + "{}__{}__{}__pg.dump.unfinished".format(
+        config.database_name,
+        str_date,
+        timestamp,
+    )
+    finished_dump_file_name = config.file_name_prefix + "{}__{}__{}__pg.dump".format(
         config.database_name,
         str_date,
         timestamp,
@@ -115,10 +119,13 @@ def process_config(default_config_path, config_path: str):
         return
 
     dump_file_path = os.path.join(dir_path, dump_file_name)
+    finished_dump_file_path = os.path.join(dir_path, finished_dump_file_name)
 
     args = ["pg_dump", "-Fc", "--file="+dump_file_path, config.database_name]
 
-    return_code = run_command_as_user(config.run_as_user, dir_path, *args)
+    run_command_as_user(config.run_as_user, dir_path, *args)
+    # rename to be sure that dump finished sucessfully
+    os.rename(dump_file_path, finished_dump_file_path)
 
     clean_dir(dir_path, config)
 

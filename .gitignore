@@ -6,3 +6,4 @@ dist/
 *.egg-info
 env/
 *.pid
+.idea/
